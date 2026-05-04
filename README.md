@@ -45,13 +45,14 @@ A full-stack web application designed for campus event management with smart cro
 2. Alternatively, serve it using a local server:
    ```bash
    # Using Python
-   python -m http.server 3000
+   python -m http.server 8080
    ```
-
+It is running locally on http://localhost:8080
 ### 4. Configuration
 The `.env` file in the root directory contains the API keys. Ensure they are correct:
 - `RESEND_API_KEY`
 - `GEMINI_API_KEY`
+- 'FIREBASE_API_KEY'
 
 ## 📊 Prediction Logic
 The system uses a weighted formula:
