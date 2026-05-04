@@ -1,0 +1,22 @@
+services:
+  # Backend service
+  - type: web
+    name: campus-pulse-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+
+  # Frontend service (Static Site)
+  - type: static
+    name: campus-pulse-frontend
+    publishPath: ./frontend
+    envVars:
+      - key: API_BASE_URL
+        value: https://campus-pulse-backend.onrender.com # User will need to update this after first deployment
